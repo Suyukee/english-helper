@@ -17,30 +17,33 @@ interface Props {
 export default function AnswerOptions({ rightWord, answerOptions }: Props) {
 	const router = useRouter();
 
-	const [isSelect, setIsSelect] = useState<number | null>(null);
+	const [selectedWord, setSelectedWord] = useState<number | null>(null);
 
 	const handleShowNext = () => {
-		setIsSelect(null);
+		if (selectedWord) {
+			setSelectedWord(null);
+		}
 		router.refresh();
 	};
 
 	return (
-		<div>
-			<ol>
+		<div className={styles.main}>
+			<ul className={styles.listBox}>
 				{answerOptions.map((word, i) => (
-					<li key={i} className={styles.ctas}>
+					<li key={i} className={styles.listItem}>
 						<button
 							className={
-								i === isSelect ? (word.eng === rightWord.eng ? styles.right : styles.wrong) : ''
+								i === selectedWord ? (word.eng === rightWord.eng ? styles.right : styles.wrong) : ''
 							}
-							onClick={() => setIsSelect(i)}
+							onClick={() => setSelectedWord(i)}
 						>
 							{word.rus}
 						</button>
 					</li>
 				))}
-			</ol>
-			<button className={styles.ctas} onClick={handleShowNext}>
+			</ul>
+
+			<button className={styles.next} onClick={handleShowNext}>
 				Дальше
 			</button>
 		</div>

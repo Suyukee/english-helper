@@ -31,27 +31,26 @@
 	grid-row-start: 1;
 }
 
-.main ol {
+.listBox {
 	font-family: var(--font-geist-mono);
 	padding-left: 0;
 	margin: 0;
 	font-size: 14px;
 	line-height: 24px;
 	letter-spacing: -0.01em;
-	list-style-position: inside;
 }
 
-.main li:not(:last-of-type) {
+.listItem:not(:last-of-type) {
 	margin-bottom: 8px;
 }
 
-.ctas {
+.listItem {
 	display: flex;
 	flex-direction: column;
 }
 
-.ctas a,
-.ctas button {
+.listItem a,
+.listItem button {
 	appearance: none;
 	border-radius: 10px;
 	height: 48px;
@@ -72,12 +71,28 @@ a.secondary {
 	border-color: var(--gray-alpha-200);
 }
 
-.right {
-	background: green;
+button.right {
+	background: rgb(61, 105, 61);
 }
 
-.wrong {
-	background: red;
+button.wrong {
+	background: rgb(173, 52, 52);
+}
+
+button.next {
+	appearance: none;
+	width: 100%;
+	height: 48px;
+	padding: 0 20px;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 500;
 }
 
 /* Enable hover only on non-touch devices */
@@ -97,13 +112,8 @@ a.secondary {
 		align-items: center;
 	}
 
-	.main ol {
-		text-align: center;
-	}
-
-	.ctas a {
+	.listItem a {
 		font-size: 14px;
-		height: 40px;
 		padding: 0 16px;
 	}
 }

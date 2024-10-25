@@ -18,15 +18,15 @@ export default function Home() {
 					<h1>English helper</h1>
 					<p>Выберете ваш уровень</p>
 				</div>
-				<ol>
+				<ul className={styles.listBox}>
 					{englishLevel.map((lvl, i) => (
-						<li key={i} className={styles.ctas}>
+						<li key={i} className={styles.listItem}>
 							<Link href={lvl.href} className={styles.secondary}>
 								{lvl.title}
 							</Link>
 						</li>
 					))}
-				</ol>
+				</ul>
 			</main>
 		</div>
 	);
