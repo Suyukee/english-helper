@@ -1,23 +1,25 @@
-import GetWords from '@/server/actions';
+import { GetWords } from '@/server/actions';
+import AnswerOptions from '@/components/answer-options';
 import styles from '@/styles/page.module.css';
 
 export default async function BeginnerPage() {
-	const word = await GetWords(4);
+	const rightWord = await GetWords('A1');
+	const answerOptions = [
+		rightWord,
+		await GetWords('A1'),
+		await GetWords('A1'),
+		await GetWords('A1'),
+	];
+	answerOptions.sort(() => Math.random() - 0.5);
 
 	return (
 		<div className={styles.page}>
 			<main className={styles.main}>
 				<div>
-					<h1>{word[0].eng} - ...</h1>
+					<h1>{rightWord.eng} — …</h1>
 					<p>переводится как</p>
 				</div>
-				<ol>
-					{word.map((w, i) => (
-						<li key={i} className={styles.ctas}>
-							<button className={styles.secondary}>{w.rus}</button>
-						</li>
-					))}
-				</ol>
+				<AnswerOptions rightWord={rightWord} answerOptions={answerOptions} />
 			</main>
 		</div>
 	);

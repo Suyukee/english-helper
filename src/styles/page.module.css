@@ -72,6 +72,14 @@ a.secondary {
 	border-color: var(--gray-alpha-200);
 }
 
+.right {
+	background: green;
+}
+
+.wrong {
+	background: red;
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
 	a.secondary:hover {
@@ -82,7 +90,7 @@ a.secondary {
 
 @media (max-width: 600px) {
 	.page {
-		padding: 0 32px 80px;
+		padding: 0 0 80px;
 	}
 
 	.main {
