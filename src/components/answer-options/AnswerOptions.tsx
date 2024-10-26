@@ -1,9 +1,9 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Word } from '@/types/word';
 import styles from '@/styles/page.module.css';
-import { useRouter } from 'next/navigation';
 
 interface Props {
 	rightWord: Word;
