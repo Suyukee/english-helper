@@ -9,7 +9,7 @@ export function getRightWord(level: WordLevel) {
 export function getFakeWords(level: WordLevel, rightWord: Word) {
 	const fakeWords = [rightWord];
 
-	while (fakeWords.length < 4) {
+	while (fakeWords.length < 5) {
 		const word = words[level][Math.floor(Math.random() * words[level].length)];
 		if (!fakeWords.includes(word)) {
 			fakeWords.push(word);

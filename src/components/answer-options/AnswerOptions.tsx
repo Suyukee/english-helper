@@ -13,7 +13,7 @@ interface Props {
 export default function AnswerOptions({ rightWord, answerOptions }: Props) {
 	const router = useRouter();
 
-	const [selectedWord, setSelectedWord] = useState([false, false, false, false]);
+	const [selectedWord, setSelectedWord] = useState([false, false, false, false, false]);
 
 	const rightIndex = useMemo(() => {
 		return answerOptions.findIndex((word) => word === rightWord);
@@ -38,7 +38,7 @@ export default function AnswerOptions({ rightWord, answerOptions }: Props) {
 	const handleShowNext = () => {
 		setTimeout(() => {
 			router.refresh();
-			setSelectedWord([false, false, false, false]);
+			setSelectedWord([false, false, false, false, false]);
 		}, 300);
 	};
 
