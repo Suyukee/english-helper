@@ -5,8 +5,8 @@
 
 	--button-hover: #f2f2f2;
 
-	--right-answer: #3d693d;
-	--wrong-answer: #ad3434;
+	--right-answer: #9beb9b;
+	--wrong-answer: #fe7070;
 
 	display: grid;
 	grid-template-rows: 1fr 20px;
@@ -24,6 +24,9 @@
 		--gray-alpha-100: rgba(var(--gray-rgb), 0.06);
 
 		--button-hover: #1a1a1a;
+
+		--right-answer: #3d693d;
+		--wrong-answer: #ad3434;
 	}
 }
 
