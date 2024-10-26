@@ -107,6 +107,13 @@ button.wrong {
 	gap: 15px;
 }
 
+.resultText p {
+	padding: 10px 20px;
+	border-radius: 10px;
+	background: var(--gray-alpha-100);
+	font-family: var(--font-geist-mono);
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
 	a.secondary:hover {
