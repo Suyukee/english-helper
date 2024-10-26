@@ -217,7 +217,13 @@ const words = {
 	C2: [],
 };
 
-export async function GetWords(level: WordLevel) {
+export async function GetRightWord(level: WordLevel) {
+	const word = words[level][Math.floor(Math.random() * words[level].length)];
+	console.log(Math.floor(Math.random() * words[level].length), word);
+	return word;
+}
+
+export async function GetFakeWords(level: WordLevel) {
 	const word = words[level][Math.floor(Math.random() * words[level].length)];
 	console.log(Math.floor(Math.random() * words[level].length), word);
 	return word;

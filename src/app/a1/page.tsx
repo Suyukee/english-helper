@@ -1,14 +1,14 @@
-import { GetWords } from '@/server/actions';
+import { GetRightWord } from '@/server/actions';
 import AnswerOptions from '@/components/answer-options';
 import styles from '@/styles/page.module.css';
 
 export default async function BeginnerPage() {
-	const rightWord = await GetWords('A1');
+	const rightWord = await GetRightWord('A1');
 	const answerOptions = [
 		rightWord,
-		await GetWords('A1'),
-		await GetWords('A1'),
-		await GetWords('A1'),
+		await GetRightWord('A1'),
+		await GetRightWord('A1'),
+		await GetRightWord('A1'),
 	];
 	answerOptions.sort(() => Math.random() - 0.5);
 

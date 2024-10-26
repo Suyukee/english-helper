@@ -18,7 +18,7 @@ export default function AnswerOptions({ rightWord, answerOptions }: Props) {
 
 	const handleShowNext = () => {
 		setSelectedWord(null);
-		location.reload();
+		location.replace('/a1');
 	};
 
 	return (
