@@ -219,5 +219,6 @@ const words = {
 
 export async function GetWords(level: WordLevel) {
 	const word = words[level][Math.floor(Math.random() * words[level].length)];
+	console.log(Math.floor(Math.random() * words[level].length), word);
 	return word;
 }
