@@ -1,19 +1,10 @@
-import { GetRightWord } from '@/utils/getWords';
+import { GetFakeWords, GetRightWord } from '@/utils/getWords';
 import AnswerOptions from '@/components/answer-options';
 import styles from '@/styles/page.module.css';
 
 export default function BeginnerPage() {
 	const rightWord = GetRightWord('A1');
-	const answerOptions = [rightWord];
-
-	while (answerOptions.length < 4) {
-		const word = GetRightWord('A1');
-		if (!answerOptions.includes(word)) {
-			answerOptions.push(word);
-		}
-	}
-
-	answerOptions.sort(() => Math.random() - 0.5);
+	const answerOptions = GetFakeWords('A1', rightWord);
 
 	return (
 		<div className={styles.page}>

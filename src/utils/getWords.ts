@@ -230,5 +230,7 @@ export function GetFakeWords(level: WordLevel, rightWord: Word) {
 		}
 	}
 
+	fakeWords.sort(() => Math.random() - 0.5);
+
 	return fakeWords;
 }

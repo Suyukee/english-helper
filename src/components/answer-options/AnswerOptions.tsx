@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Word } from '@/types/word';
 import styles from '@/styles/page.module.css';
+import { useRouter } from 'next/navigation';
 
 interface Props {
 	rightWord: Word;
@@ -10,11 +11,13 @@ interface Props {
 }
 
 export default function AnswerOptions({ rightWord, answerOptions }: Props) {
+	const router = useRouter();
+
 	const [selectedWord, setSelectedWord] = useState<number | null>(null);
 
 	const handleShowNext = () => {
 		setSelectedWord(null);
-		location.reload();
+		router.refresh();
 	};
 
 	return (
