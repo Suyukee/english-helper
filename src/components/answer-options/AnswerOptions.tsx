@@ -22,18 +22,16 @@ export default function AnswerOptions({ rightWord, answerOptions }: Props) {
 	const [countWrong, setCountWrong] = useState(0);
 
 	const handleSelectWord = (i: number) => {
-		if (!selectedWord[i]) {
-			setSelectedWord((prevState) => {
-				const newState = prevState.slice();
-				newState[i] = true;
-				return newState;
-			});
+		setSelectedWord((prevState) => {
+			const newState = prevState.slice();
+			newState[i] = true;
+			return newState;
+		});
 
-			if (answerOptions[i] === rightWord) {
-				handleShowNext();
-			} else {
-				setCountWrong(countWrong + 1);
-			}
+		if (answerOptions[i] === rightWord) {
+			handleShowNext();
+		} else {
+			setCountWrong(countWrong + 1);
 		}
 	};
 
@@ -53,6 +51,7 @@ export default function AnswerOptions({ rightWord, answerOptions }: Props) {
 							className={
 								selectedWord[index] ? (index === rightIndex ? styles.right : styles.wrong) : ''
 							}
+							disabled={selectedWord[index]}
 							onClick={() => handleSelectWord(index)}
 						>
 							{word.rus}

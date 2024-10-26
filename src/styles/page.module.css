@@ -75,6 +75,10 @@
 	font-weight: 500;
 }
 
+.listItem button:disabled {
+	color: var(--foreground);
+}
+
 a.secondary {
 	border-color: var(--gray-alpha-200);
 }
