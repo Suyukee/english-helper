@@ -9,7 +9,7 @@
 	--wrong-answer: #ad3434;
 
 	display: grid;
-	grid-template-rows: 1fr 80px 20px;
+	grid-template-rows: 1fr 20px;
 	align-items: center;
 	justify-items: center;
 	min-height: 100svh;
