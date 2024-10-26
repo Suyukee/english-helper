@@ -5,6 +5,9 @@
 
 	--button-hover: #f2f2f2;
 
+	--right-answer: #3d693d;
+	--wrong-answer: #ad3434;
+
 	display: grid;
 	grid-template-rows: 1fr 20px;
 	align-items: center;
@@ -72,27 +75,36 @@ a.secondary {
 }
 
 button.right {
-	background: rgb(61, 105, 61);
+	background: var(--right-answer);
 }
 
 button.wrong {
-	background: rgb(173, 52, 52);
+	background: var(--wrong-answer);
+	animation: error 0.2s;
 }
 
-button.next {
-	appearance: none;
-	width: 100%;
-	height: 48px;
-	padding: 0 20px;
-	border: none;
-	background: transparent;
-	cursor: pointer;
+@keyframes error {
+	0% {
+		transform: translateX(0);
+	}
+	25% {
+		transform: translateX(3px);
+	}
+	50% {
+		transform: translateX(-3px);
+	}
+	75% {
+		transform: translateX(3px);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+.resultText {
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	font-size: 16px;
-	line-height: 20px;
-	font-weight: 500;
+	gap: 15px;
 }
 
 /* Enable hover only on non-touch devices */
@@ -115,5 +127,9 @@ button.next {
 	.listItem a {
 		font-size: 14px;
 		padding: 0 16px;
+	}
+
+	.listItem button {
+		justify-content: center;
 	}
 }
