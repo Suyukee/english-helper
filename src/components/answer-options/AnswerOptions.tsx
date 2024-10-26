@@ -20,9 +20,7 @@ export default function AnswerOptions({ rightWord, answerOptions }: Props) {
 	const [selectedWord, setSelectedWord] = useState<number | null>(null);
 
 	const handleShowNext = () => {
-		if (selectedWord) {
-			setSelectedWord(null);
-		}
+		setSelectedWord(null);
 		router.refresh();
 	};
 
