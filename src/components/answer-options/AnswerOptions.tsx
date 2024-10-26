@@ -15,13 +15,11 @@ interface Props {
 }
 
 export default function AnswerOptions({ rightWord, answerOptions }: Props) {
-	const router = useRouter();
-
 	const [selectedWord, setSelectedWord] = useState<number | null>(null);
 
 	const handleShowNext = () => {
 		setSelectedWord(null);
-		router.refresh();
+		location.reload();
 	};
 
 	return (
