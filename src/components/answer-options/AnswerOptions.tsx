@@ -1,7 +1,6 @@
 'use client';
 
 import styles from '@/styles/page.module.css';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 interface Word {
