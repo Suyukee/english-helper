@@ -39,8 +39,8 @@ export default function AnswerOptions({ rightWord, answerOptions }: Props) {
 
 	const handleShowNext = () => {
 		setTimeout(() => {
-			setSelectedWord([false, false, false, false]);
 			router.refresh();
+			setSelectedWord([false, false, false, false]);
 		}, 300);
 	};
 
