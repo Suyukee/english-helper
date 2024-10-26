@@ -1,6 +1,4 @@
-'use server';
-
-type WordLevel = 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
+import { Word, WordLevel } from '@/types/word';
 
 const words = {
 	A1: [
@@ -217,14 +215,20 @@ const words = {
 	C2: [],
 };
 
-export async function GetRightWord(level: WordLevel) {
+export function GetRightWord(level: WordLevel) {
 	const word = words[level][Math.floor(Math.random() * words[level].length)];
-	console.log(Math.floor(Math.random() * words[level].length), word);
 	return word;
 }
 
-export async function GetFakeWords(level: WordLevel) {
-	const word = words[level][Math.floor(Math.random() * words[level].length)];
-	console.log(Math.floor(Math.random() * words[level].length), word);
-	return word;
+export function GetFakeWords(level: WordLevel, rightWord: Word) {
+	const fakeWords = [rightWord];
+
+	while (fakeWords.length < 4) {
+		const word = words[level][Math.floor(Math.random() * words[level].length)];
+		if (!fakeWords.includes(word)) {
+			fakeWords.push(word);
+		}
+	}
+
+	return fakeWords;
 }

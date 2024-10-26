@@ -1,12 +1,8 @@
 'use client';
 
-import styles from '@/styles/page.module.css';
 import { useState } from 'react';
-
-interface Word {
-	eng: string;
-	rus: string;
-}
+import { Word } from '@/types/word';
+import styles from '@/styles/page.module.css';
 
 interface Props {
 	rightWord: Word;
@@ -18,7 +14,7 @@ export default function AnswerOptions({ rightWord, answerOptions }: Props) {
 
 	const handleShowNext = () => {
 		setSelectedWord(null);
-		location.replace('/a1');
+		location.reload();
 	};
 
 	return (
