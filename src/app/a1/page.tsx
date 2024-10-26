@@ -11,9 +11,6 @@ export default async function BeginnerPage() {
 
 	return (
 		<div className={styles.page}>
-			<header>
-				<Link href="/">Назад</Link>
-			</header>
 			<main className={styles.main}>
 				<div>
 					<h1>{rightWord.eng} — …</h1>
@@ -21,6 +18,9 @@ export default async function BeginnerPage() {
 				</div>
 				<AnswerOptions rightWord={rightWord} answerOptions={answerOptions} />
 			</main>
+			<nav className={styles.nav}>
+				<Link href="/">Назад</Link>
+			</nav>
 		</div>
 	);
 }

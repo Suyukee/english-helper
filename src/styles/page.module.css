@@ -9,11 +9,11 @@
 	--wrong-answer: #ad3434;
 
 	display: grid;
-	grid-template-rows: 1fr 20px;
+	grid-template-rows: 1fr 80px 20px;
 	align-items: center;
 	justify-items: center;
 	min-height: 100svh;
-	padding: 0 80px 80px;
+	padding: 80px;
 	font-family: var(--font-geist-sans);
 }
 
@@ -25,6 +25,11 @@
 
 		--button-hover: #1a1a1a;
 	}
+}
+
+.nav {
+	grid-row-start: 2;
+	display: flex;
 }
 
 .main {
