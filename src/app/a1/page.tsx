@@ -1,8 +1,10 @@
+import { connection } from 'next/server';
 import { GetFakeWords, GetRightWord } from '@/utils/getWords';
 import AnswerOptions from '@/components/answer-options';
 import styles from '@/styles/page.module.css';
 
-export default function BeginnerPage() {
+export default async function BeginnerPage() {
+	await connection();
 	const rightWord = GetRightWord('A1');
 	const answerOptions = GetFakeWords('A1', rightWord);
 
