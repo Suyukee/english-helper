@@ -1,27 +1,20 @@
-.main {
-	display: flex;
-	flex-direction: column;
-	gap: 32px;
-	grid-row-start: 1;
-
+.listBox {
 	--right-answer: #00ffa2;
 	--wrong-answer: #ff7171;
-}
 
-@media (prefers-color-scheme: dark) {
-	.main {
-		--right-answer: #038253;
-		--wrong-answer: #ad3434;
-	}
-}
-
-.listBox {
 	font-family: var(--font-geist-mono);
 	padding-left: 0;
 	margin: 0;
 	font-size: 14px;
 	line-height: 24px;
 	letter-spacing: -0.01em;
+}
+
+@media (prefers-color-scheme: dark) {
+	.listBox {
+		--right-answer: #038253;
+		--wrong-answer: #ad3434;
+	}
 }
 
 .listItem:not(:last-of-type) {
@@ -95,10 +88,9 @@ button.wrong {
 }
 
 /* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
+@media (hover: hover) and (active: active) and (pointer: fine) {
 	.listItem button:hover {
 		background: var(--button-hover);
-		border-color: transparent;
 	}
 }
 
