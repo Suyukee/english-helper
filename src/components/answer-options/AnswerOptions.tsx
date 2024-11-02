@@ -1,34 +1,35 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Word } from '@/types/word';
-import styles from '@/styles/page.module.css';
+import { AnswerOptionsDto } from '@/types/word';
+import styles from '@/styles/level-page.module.css';
 
-interface Props {
-	rightWord: Word;
-	answerOptions: Word[];
+interface Words extends AnswerOptionsDto {
+	isSelect: boolean;
 }
 
-export default function AnswerOptions({ rightWord, answerOptions }: Props) {
+export default function AnswerOptions({ answerOptions }: { answerOptions: AnswerOptionsDto[] }) {
 	const router = useRouter();
 
-	const [selectedWord, setSelectedWord] = useState([false, false, false, false, false]);
+	const [words, setWords] = useState<Words[]>(
+		answerOptions.map((word) => ({ ...word, isSelect: false })),
+	);
 
-	const rightIndex = useMemo(() => {
-		return answerOptions.findIndex((word) => word === rightWord);
-	}, [rightWord, answerOptions]);
+	useEffect(() => {
+		setWords(answerOptions.map((word) => ({ ...word, isSelect: false })));
+	}, [answerOptions]);
 
 	const [countWrong, setCountWrong] = useState(0);
 
 	const handleSelectWord = (i: number) => {
-		setSelectedWord((prevState) => {
+		setWords((prevState) => {
 			const newState = prevState.slice();
-			newState[i] = true;
+			newState[i].isSelect = true;
 			return newState;
 		});
 
-		if (answerOptions[i] === rightWord) {
+		if (answerOptions[i].isRight) {
 			handleShowNext();
 		} else {
 			setCountWrong(countWrong + 1);
@@ -38,20 +39,17 @@ export default function AnswerOptions({ rightWord, answerOptions }: Props) {
 	const handleShowNext = () => {
 		setTimeout(() => {
 			router.refresh();
-			setSelectedWord([false, false, false, false, false]);
 		}, 300);
 	};
 
 	return (
 		<div className={styles.main}>
 			<ul className={styles.listBox}>
-				{answerOptions.map((word, index) => (
+				{words.map((word, index) => (
 					<li key={index} className={styles.listItem}>
 						<button
-							className={
-								selectedWord[index] ? (index === rightIndex ? styles.right : styles.wrong) : ''
-							}
-							disabled={selectedWord[index]}
+							className={word.isSelect ? (word.isRight ? styles.right : styles.wrong) : ''}
+							disabled={word.isSelect}
 							onClick={() => handleSelectWord(index)}
 						>
 							{word.rus}

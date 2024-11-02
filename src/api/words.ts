@@ -1,6 +1,6 @@
-import { A1 } from '@/api/wordsData/a1';
-import { A2 } from '@/api/wordsData/a2';
-import { B1 } from '@/api/wordsData/b1';
+import { A1 } from '@/api/words-data/a1';
+import { A2 } from '@/api/words-data/a2';
+import { B1 } from '@/api/words-data/b1';
 
 export const words = {
 	A1: A1,

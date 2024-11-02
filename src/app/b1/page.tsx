@@ -1,22 +1,19 @@
 import Link from 'next/link';
-// import { connection } from 'next/server';
-import { getFakeWords, getRightWord } from '@/api/getWords';
+import { getAnwerOptions } from '@/api/get-words';
 import AnswerOptions from '@/components/answer-options';
-import styles from '@/styles/page.module.css';
+import styles from '@/styles/main-page.module.css';
 
-export default async function IntermediatePage() {
-	// await connection();
-	const rightWord = await getRightWord('B1');
-	const answerOptions = await getFakeWords('B1', rightWord);
+export default async function BeginnerPage() {
+	const answerOptions = await getAnwerOptions('B1');
 
 	return (
 		<div className={styles.page}>
 			<main className={styles.main}>
 				<div>
-					<h1>{rightWord.eng} — …</h1>
+					<h1>{answerOptions.find((word) => word.isRight == true)?.eng} — …</h1>
 					<p>переводится как</p>
 				</div>
-				<AnswerOptions rightWord={rightWord} answerOptions={answerOptions} />
+				<AnswerOptions answerOptions={answerOptions} />
 			</main>
 			<nav className={styles.nav}>
 				<Link href="/">Назад</Link>

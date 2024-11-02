@@ -1,5 +1,5 @@
 import { words } from '@/api/words';
-import styles from '@/styles/page.module.css';
+import styles from '@/styles/main-page.module.css';
 import Link from 'next/link';
 
 const englishLevel = [
