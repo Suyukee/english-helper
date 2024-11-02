@@ -1,12 +1,14 @@
 import { words } from '@/api/words';
 import { Word, WordLevel } from '@/types/word';
+import { connection } from 'next/server';
 
-export function getRightWord(level: WordLevel) {
+export async function getRightWord(level: WordLevel) {
+	await connection();
 	const word = words[level][Math.floor(Math.random() * words[level].length)];
 	return word;
 }
 
-export function getFakeWords(level: WordLevel, rightWord: Word) {
+export async function getFakeWords(level: WordLevel, rightWord: Word) {
 	const fakeWords = [rightWord];
 
 	while (fakeWords.length < 5) {

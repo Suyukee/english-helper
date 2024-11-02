@@ -1,13 +1,13 @@
 import Link from 'next/link';
-import { connection } from 'next/server';
+// import { connection } from 'next/server';
 import { getFakeWords, getRightWord } from '@/api/getWords';
 import AnswerOptions from '@/components/answer-options';
 import styles from '@/styles/page.module.css';
 
 export default async function BeginnerPage() {
-	await connection();
-	const rightWord = getRightWord('A1');
-	const answerOptions = getFakeWords('A1', rightWord);
+	// await connection();
+	const rightWord = await getRightWord('A1');
+	const answerOptions = await getFakeWords('A1', rightWord);
 
 	return (
 		<div className={styles.page}>
