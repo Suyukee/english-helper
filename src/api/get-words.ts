@@ -15,7 +15,7 @@ export async function getAnwerOptions(level: WordLevel) {
 		await connection();
 		const word = { ...words[level][randomElement], isRight: false };
 
-		if (!answerOptions.includes(word)) {
+		if (!answerOptions.find((el) => el.eng === word.eng)) {
 			answerOptions.push(word);
 		}
 	}
