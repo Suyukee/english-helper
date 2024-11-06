@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## О приложении
 
-## Getting Started
+Веб-приложение создано для развития навыков английского языка, путём изучения новых английских слов в формате игры
 
-First, run the development server:
+## Реализация
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Приложение создано с использованием React, Typescript, NextJS
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Сайт адаптирован под все устройства
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Реализован простой бот на grammy в телеграм для удобства использования
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Деплой на Vercel
 
-## Learn More
+Приложение можно посмотреть по ссылке:
+https://english-helper-hazel.vercel.app/
 
-To learn more about Next.js, take a look at the following resources:
+## Создан бот в телеграм
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Приложение можно посмотреть по ссылке:
+https://t.me/suyukee_english_bot
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Примеры
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+![изображение](https://github.com/user-attachments/assets/380e356e-0ab5-470f-b334-1c045e298cfb)
+![изображение](https://github.com/user-attachments/assets/18bc9f0d-fb78-4d82-b04d-cce8cc200f23)
