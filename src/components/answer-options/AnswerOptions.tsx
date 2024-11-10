@@ -21,7 +21,10 @@ export default function AnswerOptions({ answerOptions, setCountWrong }: Props) {
 		answerOptions.map((word) => ({ ...word, isSelect: false })),
 	);
 
+	const [isLoading, setIsLoading] = useState(false);
+
 	useEffect(() => {
+		setIsLoading(false);
 		setWords(answerOptions.map((word) => ({ ...word, isSelect: false })));
 	}, [answerOptions]);
 
@@ -40,6 +43,7 @@ export default function AnswerOptions({ answerOptions, setCountWrong }: Props) {
 	};
 
 	const handleShowNext = () => {
+		setIsLoading(true);
 		setTimeout(() => {
 			router.refresh();
 		}, 300);
@@ -51,7 +55,7 @@ export default function AnswerOptions({ answerOptions, setCountWrong }: Props) {
 				<li key={index} className={styles.listItem}>
 					<button
 						className={word.isSelect ? (word.isRight ? styles.right : styles.wrong) : ''}
-						disabled={word.isSelect}
+						disabled={word.isSelect || isLoading}
 						onClick={() => handleSelectWord(index)}
 					>
 						{word.rus}

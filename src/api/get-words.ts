@@ -1,6 +1,6 @@
+import { connection } from 'next/server';
 import { words } from '@/api/words';
 import { AnswerOptionsDto, WordLevel } from '@/types/word';
-import { connection } from 'next/server';
 
 export async function getAnwerOptions(level: WordLevel) {
 	const randomElement = Math.floor(Math.random() * words[level].length);
