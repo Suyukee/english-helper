@@ -32,8 +32,7 @@
 	min-height: 48px;
 	padding: 12px 20px;
 	border: none;
-	border: 2px solid transparent;
-	transition: background 0.2s, color 0.2s, border-color 0.2s;
+	transition: background 0.2s, color 0.2s;
 	cursor: pointer;
 	display: flex;
 	justify-content: left;
@@ -45,6 +44,10 @@
 
 .listItem button:disabled {
 	color: var(--foreground);
+}
+
+.listItem button:disabled:not(.right):not(.wrong) {
+	background: var(--gray-alpha-100);
 }
 
 button.right {
