@@ -1,4 +1,5 @@
 .listBox {
+	--button: #2b2a33;
 	--right-answer: #00ffa2;
 	--wrong-answer: #ff7171;
 
@@ -32,6 +33,7 @@
 	min-height: 48px;
 	padding: 12px 20px;
 	border: none;
+	background: var(--button);
 	transition: background 0.2s, color 0.2s;
 	cursor: pointer;
 	display: flex;
