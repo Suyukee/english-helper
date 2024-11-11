@@ -11,10 +11,10 @@ interface Words extends AnswerOptionsDto {
 
 interface Props {
 	answerOptions: AnswerOptionsDto[];
-	setCountWrong: Dispatch<SetStateAction<number>>;
+	setCountRight: Dispatch<SetStateAction<number>>;
 }
 
-export default function AnswerOptions({ answerOptions, setCountWrong }: Props) {
+export default function AnswerOptions({ answerOptions, setCountRight }: Props) {
 	const router = useRouter();
 
 	const [words, setWords] = useState<Words[]>(
@@ -35,10 +35,19 @@ export default function AnswerOptions({ answerOptions, setCountWrong }: Props) {
 			return newState;
 		});
 
+		const countSelected = words.reduce((result: number, word: Words) => {
+			if (word.isSelect) {
+				result++;
+			}
+			return result;
+		}, 0);
+
 		if (answerOptions[i].isRight) {
 			handleShowNext();
-		} else {
-			setCountWrong((prevState) => prevState + 1);
+
+			if (countSelected === 0) {
+				setCountRight((prevState) => prevState + 1);
+			}
 		}
 	};
 

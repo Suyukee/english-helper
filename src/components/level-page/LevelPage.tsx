@@ -7,7 +7,7 @@ import { AnswerOptionsDto } from '@/types/word';
 import styles from '@/styles/main-page.module.css';
 
 export default function LevelPage({ answerOptions }: { answerOptions: AnswerOptionsDto[] }) {
-	const [countWrong, setCountWrong] = useState(0);
+	const [countRight, setCountRight] = useState(0);
 
 	return (
 		<div className={styles.page}>
@@ -16,9 +16,9 @@ export default function LevelPage({ answerOptions }: { answerOptions: AnswerOpti
 					<h1>{answerOptions.find((word) => word.isRight == true)?.eng} — …</h1>
 					<p>переводится как</p>
 				</div>
-				<AnswerOptions answerOptions={answerOptions} setCountWrong={setCountWrong} />
+				<AnswerOptions answerOptions={answerOptions} setCountRight={setCountRight} />
 				<div className={styles.resultText}>
-					<p>Ошибок: {countWrong}</p>
+					<p>Правильных: {countRight}</p>
 				</div>
 			</main>
 			<nav className={styles.nav}>
