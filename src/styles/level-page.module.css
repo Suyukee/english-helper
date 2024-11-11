@@ -47,7 +47,7 @@
 }
 
 .listItem button:disabled:not(.right):not(.wrong) {
-	background: var(--gray-alpha-100);
+	opacity: 0.99;
 }
 
 button.right {
