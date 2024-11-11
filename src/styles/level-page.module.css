@@ -44,12 +44,19 @@
 	font-weight: 500;
 }
 
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+	.listItem button:hover:not(:disabled):not(.right):not(.wrong) {
+		background: var(--button-hover);
+	}
+}
+
 .listItem button:disabled {
 	color: var(--foreground);
 }
 
 .listItem button:disabled:not(.right):not(.wrong) {
-	opacity: 0.99;
+	opacity: 0.6;
 }
 
 button.right {
@@ -76,13 +83,6 @@ button.wrong {
 	}
 	100% {
 		transform: translateX(0);
-	}
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (active: active) and (pointer: fine) {
-	.listItem button:hover {
-		background: var(--button-hover);
 	}
 }
 
