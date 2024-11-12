@@ -1,6 +1,7 @@
-import { words } from '@/api/words';
-import styles from '@/styles/main-page.module.css';
 import Link from 'next/link';
+import { words } from '@/api/words';
+import { clearIsGuess } from '@/api/get-words';
+import styles from '@/styles/main-page.module.css';
 
 const englishLevel = [
 	{ title: `A1 — Beginner (+${words.A1.length} слов)`, href: '/a1' },
@@ -12,6 +13,8 @@ const englishLevel = [
 ];
 
 export default function Home() {
+	clearIsGuess();
+
 	return (
 		<div className={styles.page}>
 			<main className={styles.main}>

@@ -2,19 +2,20 @@
 
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { AnswerOptionsDto } from '@/types/word';
+import { WordDto } from '@/types/word';
 import styles from '@/styles/level-page.module.css';
 
-interface Words extends AnswerOptionsDto {
+interface Words extends WordDto {
 	isSelect: boolean;
 }
 
 interface Props {
-	answerOptions: AnswerOptionsDto[];
+	answerOptions: WordDto[];
+	rightWordId: string;
 	setCountRight: Dispatch<SetStateAction<number>>;
 }
 
-export default function AnswerOptions({ answerOptions, setCountRight }: Props) {
+export default function AnswerOptions({ answerOptions, rightWordId, setCountRight }: Props) {
 	const router = useRouter();
 
 	const [words, setWords] = useState<Words[]>(
@@ -42,10 +43,11 @@ export default function AnswerOptions({ answerOptions, setCountRight }: Props) {
 			return result;
 		}, 0);
 
-		if (answerOptions[i].isRight) {
+		if (answerOptions[i].id === rightWordId) {
 			handleShowNext();
 
 			if (countSelected === 0) {
+				answerOptions[i].isGuess = true;
 				setCountRight((prevState) => prevState + 1);
 			}
 		}
@@ -63,7 +65,7 @@ export default function AnswerOptions({ answerOptions, setCountRight }: Props) {
 			{words.map((word, index) => (
 				<li key={index} className={styles.listItem}>
 					<button
-						className={word.isSelect ? (word.isRight ? styles.right : styles.wrong) : ''}
+						className={word.isSelect ? (word.id === rightWordId ? styles.right : styles.wrong) : ''}
 						disabled={word.isSelect || isLoading}
 						onClick={() => handleSelectWord(index)}
 					>
