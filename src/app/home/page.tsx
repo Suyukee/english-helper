@@ -7,7 +7,7 @@ export default async function HomePage() {
 		data: { user },
 	} = await supabase.auth.getUser();
 
-	const { data, error } = await supabase.from('words').select().eq('id', user?.id);
+	const { data, error } = await supabase.from('a1').select();
 
 	if (error) return <div>Error</div>;
 
