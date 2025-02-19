@@ -7,7 +7,7 @@ export default async function HomePage() {
 		data: { user },
 	} = await supabase.auth.getUser();
 
-	const { data, error } = await supabase.from('a1').select();
+	const { data, error } = await supabase.from('words').select();
 
 	if (error) return <div>Error</div>;
 
@@ -16,7 +16,7 @@ export default async function HomePage() {
 			<center>
 				<h3>User ID - {user?.id}</h3>
 				<br />
-				<pre>{JSON.stringify(data)}</pre>
+				<pre>{JSON.stringify(data, null, 2)}</pre>
 			</center>
 		</div>
 	);
