@@ -1,7 +1,5 @@
 import { login, signup } from './actions';
 
-export const dynamic = 'force-dynamic';
-
 export default function App() {
 	return (
 		<form>
