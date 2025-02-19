@@ -1,4 +1,5 @@
 import { createClient } from '@/shared/lib/server';
+import styles from '@/shared/styles/page.module.css';
 
 export default async function HomePage() {
 	const supabase = await createClient();
@@ -12,10 +13,14 @@ export default async function HomePage() {
 	if (error) return <div>Error</div>;
 
 	return (
-		<main>
-			<h3>User ID - {user?.id}</h3>
-			<br />
-			<pre>{JSON.stringify(data, null, 2)}</pre>
-		</main>
+		<div className={styles.page}>
+			<main className={styles.main}>
+				<div>
+					<h1>English helper</h1>
+					<p>{user?.id}</p>
+				</div>
+				<pre>{JSON.stringify(data, null, 2)}</pre>
+			</main>
+		</div>
 	);
 }

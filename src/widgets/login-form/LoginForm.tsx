@@ -15,8 +15,12 @@ export default function LoginForm() {
 			<input className={styles.input} name="password" type="password" id="password" required />
 
 			<div className={styles.control}>
-				<button formAction={login}>Log in</button>
-				<button formAction={signup}>Sign up</button>
+				<button className={styles.button} formAction={login}>
+					Log in
+				</button>
+				<button className={styles.button} formAction={signup}>
+					Sign up
+				</button>
 			</div>
 		</form>
 	);

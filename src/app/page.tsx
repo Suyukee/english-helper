@@ -3,8 +3,14 @@ import styles from '@/shared/styles/page.module.css';
 
 export default function App() {
 	return (
-		<main className={styles.page}>
-			<LoginForm />
-		</main>
+		<div className={styles.page}>
+			<main className={styles.main}>
+				<div>
+					<h1>English helper</h1>
+					<p>Войдите или зарегистрируйтесь</p>
+				</div>
+				<LoginForm />
+			</main>
+		</div>
 	);
 }

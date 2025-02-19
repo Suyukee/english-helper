@@ -7,3 +7,19 @@
 	padding: 0 80px 80px;
 	font-family: var(--font-geist-sans);
 }
+
+.main {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+}
+
+@media (max-width: 600px) {
+	.page {
+		padding: 0 30px 40px;
+	}
+
+	.main {
+		align-items: center;
+	}
+}
