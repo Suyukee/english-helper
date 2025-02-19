@@ -27,8 +27,6 @@ export async function login(formData: FormData) {
 		redirect('/error');
 	}
 
-	await createWords();
-
 	revalidatePath('/', 'layout');
 	redirect('/home');
 }

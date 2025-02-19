@@ -12,12 +12,10 @@ export default async function HomePage() {
 	if (error) return <div>Error</div>;
 
 	return (
-		<div>
-			<center>
-				<h3>User ID - {user?.id}</h3>
-				<br />
-				<pre>{JSON.stringify(data, null, 2)}</pre>
-			</center>
-		</div>
+		<main>
+			<h3>User ID - {user?.id}</h3>
+			<br />
+			<pre>{JSON.stringify(data, null, 2)}</pre>
+		</main>
 	);
 }
