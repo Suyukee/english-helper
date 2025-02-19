@@ -52,6 +52,7 @@ export async function signup(formData: FormData) {
 }
 
 async function createWords() {
+	console.log('START');
 	const supabase = await createClient();
 
 	const {

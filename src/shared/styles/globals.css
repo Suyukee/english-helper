@@ -3,10 +3,11 @@
 	--foreground: #171717;
 
 	--gray-rgb: 0, 0, 0;
-	--gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-	--gray-alpha-100: rgba(var(--gray-rgb), 0.05);
+	--gray-alpha-200: rgba(var(--gray-rgb), 0.145);
+	--gray-alpha-100: rgba(var(--gray-rgb), 0.06);
 
-	--button-hover: #f2f2f2;
+	--button: #f2f2f2;
+	--button-hover: #e9e8d5;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,6 +19,7 @@
 		--gray-alpha-200: rgba(var(--gray-rgb), 0.145);
 		--gray-alpha-100: rgba(var(--gray-rgb), 0.06);
 
+		--button: #2b2a33;
 		--button-hover: #1a1a1a;
 	}
 }
