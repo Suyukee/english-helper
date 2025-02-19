@@ -1,7 +1,7 @@
 'use server';
 
+import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-
 import { createClient } from '@/shared/lib/server';
 
 type WordLevel = 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
@@ -29,6 +29,7 @@ export async function login(formData: FormData) {
 
 	await createWords();
 
+	revalidatePath('/', 'layout');
 	redirect('/home');
 }
 
@@ -48,6 +49,7 @@ export async function signup(formData: FormData) {
 
 	await createWords();
 
+	revalidatePath('/', 'layout');
 	redirect('/home');
 }
 
