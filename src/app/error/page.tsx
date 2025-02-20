@@ -5,7 +5,10 @@ export default function ErrorPage() {
 	return (
 		<div className={styles.page}>
 			<main className={styles.main}>
-				<h1>Error</h1>
+				<div>
+					<h1>Упс, ошибка :(</h1>
+					<p>Что-то пошло не так</p>
+				</div>
 			</main>
 			<div>
 				<Link href="/">На главную</Link>

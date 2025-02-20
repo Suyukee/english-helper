@@ -4,22 +4,33 @@ import styles from '@/shared/styles/login-form.module.css';
 export default function LoginForm() {
 	return (
 		<form className={styles.form}>
-			<label className={styles.label} htmlFor="email">
-				Email:
-			</label>
-			<input className={styles.input} name="email" type="email" id="email" required />
+			<div className={styles.field}>
+				<label className={styles.label} htmlFor="email">
+					Email
+				</label>
+				<input
+					className={styles.input}
+					name="email"
+					type="email"
+					id="email"
+					placeholder="m@example.com"
+					required
+				/>
+			</div>
 
-			<label className={styles.label} htmlFor="password">
-				Password:
-			</label>
-			<input className={styles.input} name="password" type="password" id="password" required />
+			<div className={styles.field}>
+				<label className={styles.label} htmlFor="password">
+					Пароль
+				</label>
+				<input className={styles.input} name="password" type="password" id="password" required />
+			</div>
 
 			<div className={styles.control}>
 				<button className={styles.button} formAction={login}>
-					Log in
+					Вход
 				</button>
 				<button className={styles.button} formAction={signup}>
-					Sign up
+					Регистрация
 				</button>
 			</div>
 		</form>
