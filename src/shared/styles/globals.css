@@ -7,7 +7,7 @@
 	--gray-alpha-100: rgba(var(--gray-rgb), 0.06);
 
 	--button: #f2f2f2;
-	--button-hover: #e9e8d5;
+	--button-hover: var(--gray-alpha-200);
 }
 
 @media (prefers-color-scheme: dark) {

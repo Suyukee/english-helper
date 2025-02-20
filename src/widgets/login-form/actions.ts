@@ -3,15 +3,7 @@
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/shared/lib/server';
-
-type WordLevel = 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
-
-interface Word {
-	id: number;
-	eng: string;
-	rus: string;
-	level: WordLevel;
-}
+import { Word } from '@/shared/types/word';
 
 export async function login(formData: FormData) {
 	const supabase = await createClient();
