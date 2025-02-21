@@ -16,13 +16,3 @@ export async function getWords(level: string) {
 
 	return data.sort(() => Math.random() - 0.5).slice(0, 5);
 }
-
-export async function wordIsLearned(id: string) {
-	const supabase = await createClient();
-
-	const { error } = await supabase.from('words').update({ is_learned: true }).match({ id });
-
-	if (error) {
-		redirect('/error');
-	}
-}

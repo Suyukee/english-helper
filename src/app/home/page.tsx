@@ -19,7 +19,7 @@ export default async function HomePage() {
 			<main className={styles.main}>
 				<div>
 					<h1>English helper</h1>
-					<p>Выберете ваш уровень</p>
+					<p>Выберите ваш уровень</p>
 				</div>
 				<LevelList userId={user.id} />
 			</main>

@@ -21,3 +21,17 @@
 	line-height: 20px;
 	font-weight: 500;
 }
+
+.right {
+	background: hsl(var(--green));
+}
+
+.wrong {
+	background: hsl(var(--red));
+}
+
+@media (max-width: 600px) {
+	.button {
+		justify-content: center;
+	}
+}

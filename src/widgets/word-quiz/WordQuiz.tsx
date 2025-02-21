@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { createClient } from '@/shared/lib/client';
 import { Word } from '@/shared/types/word';
 import styles from '@/shared/styles/word-quiz.module.css';
 
@@ -11,11 +12,10 @@ interface WordQuizProps {
 export default function WordQuiz({ words }: WordQuizProps) {
 	const router = useRouter();
 
-	const handleClick = (index: number) => {
+	const handleClick = async (index: number, id: string) => {
 		if (index === 0) {
-			console.log('true');
-		} else {
-			console.log('false');
+			const supabase = createClient();
+			await supabase.from('words').update({ is_learned: true }).match({ id });
 		}
 
 		router.refresh();
@@ -23,17 +23,25 @@ export default function WordQuiz({ words }: WordQuizProps) {
 
 	if (!words) return;
 
+	// const rightWord = words[0];
+
 	return (
-		<div>
-			<h1>{words[0].eng} - ...</h1>
-			<p>Выберете правильный вариант</p>
+		<div className={styles.main}>
+			<h1>{words[0].eng} — ...</h1>
+			<p>Выберите правильный вариант</p>
 
 			<nav className={styles.nav}>
-				{words.map((item, index) => (
-					<button className={styles.button} key={index} onClick={() => handleClick(index)}>
-						{item.rus}
-					</button>
-				))}
+				{words
+					.sort(() => Math.random() - 0.5)
+					.map((word, index) => (
+						<button
+							className={`${styles.button}`}
+							key={index}
+							onClick={() => handleClick(index, word.id)}
+						>
+							{word.rus}
+						</button>
+					))}
 			</nav>
 		</div>
 	);
