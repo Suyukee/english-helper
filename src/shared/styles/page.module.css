@@ -13,6 +13,19 @@
 	gap: 32px;
 }
 
+.resultText {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+}
+
+.resultText p {
+	padding: 10px 20px;
+	border-radius: 10px;
+	background: hsl(var(--secondary));
+	font-family: var(--font-geist-mono);
+}
+
 @media (max-width: 600px) {
 	.page {
 		padding: 0 30px 40px;

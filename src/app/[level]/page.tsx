@@ -1,5 +1,7 @@
-import { getWords } from '@/widgets/word-quiz/actions';
+import Link from 'next/link';
 import WordQuiz from '@/widgets/word-quiz';
+import { getWords } from '@/widgets/word-quiz/actions';
+import { levelProgress } from '@/widgets/level-list/actions';
 import styles from '@/shared/styles/page.module.css';
 
 interface LevelPageProps {
@@ -8,14 +10,21 @@ interface LevelPageProps {
 
 export default async function LevelPage({ params }: LevelPageProps) {
 	const { level } = await params;
-	console.log(level);
+
 	const words = await getWords(level);
+	const progress = await levelProgress(level);
 
 	return (
 		<div className={styles.page}>
 			<main className={styles.main}>
 				<WordQuiz words={words} />
+				<div className={styles.resultText}>
+					<p>{progress}</p>
+				</div>
 			</main>
+			<nav className={styles.nav}>
+				<Link href="/home">Назад</Link>
+			</nav>
 		</div>
 	);
 }
