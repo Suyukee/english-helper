@@ -57,6 +57,11 @@
 	transition: background 0.2s ease, color 0.2s ease;
 }
 
+.button:disabled {
+	pointer-events: none;
+	opacity: 0.5;
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
 	.button:hover {
