@@ -12,8 +12,8 @@ interface WordQuizProps {
 export default function WordQuiz({ words }: WordQuizProps) {
 	const router = useRouter();
 
-	const handleClick = async (index: number, id: string) => {
-		if (index === 0) {
+	const handleClick = async (id: string) => {
+		if (rightWord.id === id) {
 			const supabase = createClient();
 			await supabase.from('words').update({ is_learned: true }).match({ id });
 		}
@@ -23,7 +23,7 @@ export default function WordQuiz({ words }: WordQuizProps) {
 
 	if (!words) return;
 
-	// const rightWord = words[0];
+	const rightWord = words[0];
 
 	return (
 		<div className={styles.main}>
@@ -33,11 +33,11 @@ export default function WordQuiz({ words }: WordQuizProps) {
 			<nav className={styles.nav}>
 				{words
 					.sort(() => Math.random() - 0.5)
-					.map((word, index) => (
+					.map((word) => (
 						<button
 							className={`${styles.button}`}
-							key={index}
-							onClick={() => handleClick(index, word.id)}
+							key={word.id}
+							onClick={() => handleClick(word.id)}
 						>
 							{word.rus}
 						</button>
