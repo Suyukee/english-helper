@@ -1,3 +1,8 @@
+.main {
+	display: flex;
+	flex-direction: column;
+}
+
 .nav {
 	margin-top: 20px;
 	display: flex;
@@ -31,6 +36,10 @@
 }
 
 @media (max-width: 600px) {
+	.main {
+		align-items: center;
+	}
+
 	.button {
 		justify-content: center;
 	}

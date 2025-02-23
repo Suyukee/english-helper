@@ -1,0 +1,9 @@
+.resetBtn {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	background: transparent;
+	border: none;
+	font-size: 16px;
+	cursor: pointer;
+}

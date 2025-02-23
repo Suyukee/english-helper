@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation';
 import { createClient } from '@/shared/lib/server';
 import LevelList from '@/widgets/level-list';
+import ResetProgress from '@/widgets/reset-progress';
 import styles from '@/shared/styles/page.module.css';
 
 export default async function HomePage() {
@@ -23,6 +24,7 @@ export default async function HomePage() {
 				</div>
 				<LevelList userId={user.id} />
 			</main>
+			<ResetProgress />
 		</div>
 	);
 }
