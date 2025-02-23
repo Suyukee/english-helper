@@ -44,19 +44,22 @@ export async function signup(formData: FormData) {
 }
 
 async function createWords() {
-	console.log('START');
 	const supabase = await createClient();
 
 	const {
 		data: { user },
 	} = await supabase.auth.getUser();
 
-	const { data: a1 } = await supabase.from('a1').select<string, Word>();
-	const { data: a2 } = await supabase.from('a2').select<string, Word>();
+	const { data: A1 } = await supabase.from('A1').select<string, Word>().limit(2000);
+	const { data: A2 } = await supabase.from('A2').select<string, Word>().limit(2000);
+	const { data: B1 } = await supabase.from('B1').select<string, Word>().limit(2000);
+	const { data: B2 } = await supabase.from('B2').select<string, Word>().limit(2000);
+	const { data: C1 } = await supabase.from('C1').select<string, Word>().limit(2000);
+	const { data: C2 } = await supabase.from('C2').select<string, Word>().limit(2000);
 
-	if (!a1 || !a2) return;
+	if (!A1 || !A2 || !B1 || !B2 || !C1 || !C2) return;
 
-	const temp = [...a1, ...a2];
+	const temp = [...A1, ...A2, ...B1, ...B2, ...C1, ...C2];
 
 	const words = temp.map((item: Word) => ({
 		id: crypto.randomUUID(),

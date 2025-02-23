@@ -6,17 +6,20 @@ import { createClient } from '@/shared/lib/server';
 export async function levelProgress(level: string) {
 	const supabase = await createClient();
 
-	const { data: all } = await supabase.from('words').select().eq('level', level);
-
-	const { data: learned } = await supabase
+	const { count: all } = await supabase
 		.from('words')
-		.select()
+		.select('*', { count: 'exact' })
+		.eq('level', level);
+
+	const { count: isLearned, error } = await supabase
+		.from('words')
+		.select('*', { count: 'exact' })
 		.eq('level', level)
 		.eq('is_learned', true);
 
-	if (!all || !learned) {
+	if (error || !all) {
 		redirect('/error');
 	}
 
-	return `${learned.length} / ${all.length}`;
+	return `${isLearned} / ${all}`;
 }

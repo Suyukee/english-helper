@@ -8,7 +8,8 @@ export async function getWords(level: string) {
 		.from('words')
 		.select()
 		.eq('level', level)
-		.eq('is_learned', false);
+		.eq('is_learned', false)
+		.limit(2000);
 
 	if (error) {
 		redirect('/error');
