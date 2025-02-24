@@ -8,25 +8,24 @@ import styles from '@/shared/styles/word-quiz.module.css';
 
 interface WordQuizProps {
 	words: Word[] | null;
+	rightWord: Word;
 }
 
-export default function WordQuiz({ words }: WordQuizProps) {
+export default function WordQuiz({ words, rightWord }: WordQuizProps) {
 	const buttonRef = useRef<(HTMLButtonElement | null)[]>([]);
 
 	const router = useRouter();
 
 	if (!words) return;
 
-	const rightWord = words[0];
-
 	const handleClick = async (id: string, index: number) => {
-		if (rightWord.id === id) {
+		if (id === rightWord.id) {
 			buttonRef.current[index]?.classList.add(styles.right);
 		} else {
 			buttonRef.current[index]?.classList.add(styles.wrong);
 		}
 
-		if (rightWord.id === id) {
+		if (id === rightWord.id) {
 			const supabase = createClient();
 			await supabase.from('words').update({ is_learned: true }).match({ id });
 		}
@@ -36,24 +35,22 @@ export default function WordQuiz({ words }: WordQuizProps) {
 
 	return (
 		<div className={styles.main}>
-			<h1>{words[0].eng} — ...</h1>
+			<h1>{rightWord.eng} — ...</h1>
 			<p>Выберите правильный вариант</p>
 
 			<nav className={styles.nav}>
-				{words
-					.sort(() => Math.random() - 0.5)
-					.map((word, index) => (
-						<button
-							className={`${styles.button}`}
-							key={word.id}
-							ref={(el) => {
-								buttonRef.current[index] = el;
-							}}
-							onClick={() => handleClick(word.id, index)}
-						>
-							{word.rus}
-						</button>
-					))}
+				{words.map((word, index) => (
+					<button
+						className={`${styles.button}`}
+						key={word.id}
+						ref={(el) => {
+							buttonRef.current[index] = el;
+						}}
+						onClick={() => handleClick(word.id, index)}
+					>
+						{word.rus}
+					</button>
+				))}
 			</nav>
 		</div>
 	);

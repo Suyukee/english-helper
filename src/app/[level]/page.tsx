@@ -11,13 +11,13 @@ interface LevelPageProps {
 export default async function LevelPage({ params }: LevelPageProps) {
 	const { level } = await params;
 
-	const words = await getWords(level);
+	const { words, rightWord } = await getWords(level);
 	const progress = await levelProgress(level);
 
 	return (
 		<div className={styles.page}>
 			<main className={styles.main}>
-				<WordQuiz words={words} />
+				<WordQuiz words={words} rightWord={rightWord} />
 				<div className={styles.resultText}>
 					<p>{progress}</p>
 				</div>
