@@ -12,8 +12,6 @@ export async function getWords(level: string) {
 		redirect('/error');
 	}
 
-	console.log(words[Math.floor(Math.random() * 5)].rus);
-
 	return {
 		words: words,
 		rightWord: words[Math.floor(Math.random() * 5)],
