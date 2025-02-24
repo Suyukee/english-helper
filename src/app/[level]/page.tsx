@@ -17,13 +17,24 @@ export default async function LevelPage({ params }: LevelPageProps) {
 	return (
 		<div className={styles.page}>
 			<main className={styles.main}>
-				<WordQuiz words={words} rightWord={rightWord} />
+				{words.length > 0 ? (
+					<WordQuiz words={words} rightWord={rightWord} />
+				) : (
+					<div>
+						<h1>Все слова изучены 🎉</h1>
+						<p>Выберите другой уровень или сбросьте прогресс</p>
+					</div>
+				)}
+
 				<div className={styles.resultText}>
 					<p>{progress}</p>
 				</div>
 			</main>
+
 			<nav className={styles.nav}>
-				<Link href="/home">Назад</Link>
+				<Link href="/" className={styles.link}>
+					Назад
+				</Link>
 			</nav>
 		</div>
 	);

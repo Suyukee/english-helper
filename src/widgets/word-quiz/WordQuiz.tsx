@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/shared/lib/client';
 import { Word } from '@/shared/types/word';
@@ -12,26 +12,27 @@ interface WordQuizProps {
 }
 
 export default function WordQuiz({ words, rightWord }: WordQuizProps) {
-	const buttonRef = useRef<(HTMLButtonElement | null)[]>([]);
-
 	const router = useRouter();
+	const buttonRef = useRef<(HTMLButtonElement | null)[]>([]);
+	const supabase = createClient();
 
-	if (!words) return;
+	useEffect(() => {
+		buttonRef.current.map((item) => item?.classList.remove(styles.wrong));
+	}, [words, rightWord]);
 
 	const handleClick = async (id: string, index: number) => {
 		if (id === rightWord.id) {
 			buttonRef.current[index]?.classList.add(styles.right);
+
+			await supabase.from('words').update({ is_learned: true }).match({ id });
 		} else {
 			buttonRef.current[index]?.classList.add(styles.wrong);
 		}
 
-		if (id === rightWord.id) {
-			const supabase = createClient();
-			await supabase.from('words').update({ is_learned: true }).match({ id });
-		}
-
 		router.refresh();
 	};
+
+	if (!words) return;
 
 	return (
 		<div className={styles.main}>

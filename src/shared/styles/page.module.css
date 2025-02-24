@@ -26,6 +26,10 @@
 	font-family: var(--font-geist-mono);
 }
 
+.link {
+	padding: 15px;
+}
+
 @media (max-width: 600px) {
 	.page {
 		padding: 0 30px 40px;

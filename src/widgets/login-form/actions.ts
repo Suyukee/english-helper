@@ -20,7 +20,7 @@ export async function login(formData: FormData) {
 	}
 
 	revalidatePath('/', 'layout');
-	redirect('/home');
+	redirect('/');
 }
 
 export async function signup(formData: FormData) {
@@ -40,7 +40,7 @@ export async function signup(formData: FormData) {
 	await createWords();
 
 	revalidatePath('/', 'layout');
-	redirect('/home');
+	redirect('/');
 }
 
 async function createWords() {

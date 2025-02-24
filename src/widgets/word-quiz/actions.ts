@@ -12,6 +12,12 @@ export async function getWords(level: string) {
 		redirect('/error');
 	}
 
+	if (words.length < 5)
+		return {
+			words: words,
+			rightWord: words[Math.floor(Math.random() * words.length)],
+		};
+
 	return {
 		words: words,
 		rightWord: words[Math.floor(Math.random() * 5)],
