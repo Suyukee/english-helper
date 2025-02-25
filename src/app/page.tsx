@@ -27,8 +27,10 @@ export default async function App() {
 					<h1>English helper</h1>
 					<p>Выберите ваш уровень</p>
 				</div>
-				<LevelList userId={user.id} />
+
+				<LevelList />
 			</main>
+
 			<ResetProgress />
 		</div>
 	);

@@ -3,11 +3,8 @@ import { getAllProgress } from './actions';
 import { WordLevel, WordLevelProgress } from '@/shared/types/word';
 import styles from '@/shared/styles/level-list.module.css';
 
-interface LevelListProps {
-	userId: string;
-}
 
-export default async function LevelList({ userId }: LevelListProps) {
+export default async function LevelList() {
 	const progress = await getAllProgress();
 
 	const getLevelProgress = (level: WordLevel) => {
@@ -24,15 +21,15 @@ export default async function LevelList({ userId }: LevelListProps) {
 		{ level: WordLevel.C2, name: 'Proficiency' },
 	];
 
-	if (!userId) return;
 
 	return (
-		<nav className={styles.nav}>
-			{levels.map((item) => (
-				<Link className={styles.link} href={`/${item.level}`} key={item.level}>
-					{item.level} - {item.name}: {getLevelProgress(item.level)}
-				</Link>
-			))}
-		</nav>
+
+			<nav className={styles.nav}>
+				{levels.map((item) => (
+					<Link className={styles.link} href={`/${item.level}`} key={item.level}>
+						{item.level} - {item.name}: {getLevelProgress(item.level)}
+					</Link>
+				))}
+			</nav>
 	);
 }
