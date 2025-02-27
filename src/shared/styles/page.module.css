@@ -1,11 +1,15 @@
 .page {
 	position: relative;
 	display: grid;
-	grid-template-rows: 1fr 20px;
+	grid-template-rows: 1fr auto;
 	align-items: center;
 	justify-items: center;
 	min-height: 100svh;
 	padding: 0 80px 80px;
+}
+
+.home {
+	grid-template-rows: auto 1fr auto;
 }
 
 .main {
@@ -25,17 +29,6 @@
 	border-radius: 10px;
 	background: hsl(var(--secondary));
 	font-family: var(--font-geist-mono);
-}
-
-.header {
-	width: 80%;
-	height: 60px;
-	position: absolute;
-	top: 0;
-	display: flex;
-	justify-content: flex-end;
-	align-items: flex-end;
-	gap: 10px;
 }
 
 @media (max-width: 600px) {
