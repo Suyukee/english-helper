@@ -26,16 +26,6 @@
 	font-family: var(--font-geist-mono);
 }
 
-.congratulation {
-	display: flex;
-	flex-direction: column;
-	gap: 15px;
-}
-
-.link {
-	padding: 15px;
-}
-
 @media (max-width: 600px) {
 	.page {
 		padding: 0 30px 40px;

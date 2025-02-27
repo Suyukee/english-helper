@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { resetProgress } from './actions';
 import ResetIcon from '@/shared/icons/ResetIcon';
-import styles from '@/shared/styles/reset-progress.module.css';
+import styles from '@/shared/styles/navigation.module.css';
 
 export default function ResetProgress() {
 	const router = useRouter();
@@ -16,7 +16,7 @@ export default function ResetProgress() {
 
 	return (
 		<nav className={styles.nav}>
-			<button className={styles.resetBtn} onClick={handleReset}>
+			<button className={styles.button} onClick={handleReset}>
 				<ResetIcon />
 				Сбросить прогресс
 			</button>

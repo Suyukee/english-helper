@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { createClient } from '@/shared/lib/client';
 import { Word } from '@/shared/types/word';
 import styles from '@/shared/styles/word-quiz.module.css';
+import ContentHeader from '@/shared/components/content-header/ContentHeader';
 
 interface WordQuizProps {
 	words: Word[] | null;
@@ -36,8 +37,7 @@ export default function WordQuiz({ words, rightWord }: WordQuizProps) {
 
 	return (
 		<div className={styles.main}>
-			<h1>{rightWord.eng} — ...</h1>
-			<p>Выберите правильный вариант</p>
+			<ContentHeader title={`${rightWord.eng} — ...`} subtitle="Выберите правильный вариант" />
 
 			<nav className={styles.nav}>
 				{words.map((word, index) => (

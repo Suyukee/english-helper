@@ -1,7 +1,8 @@
-import Link from 'next/link';
-import WordQuiz from '@/widgets/word-quiz';
 import { getWords } from '@/widgets/word-quiz/actions';
 import { getLevelProgress } from '@/widgets/level-list/actions';
+import WordQuiz from '@/widgets/word-quiz';
+import ContentHeader from '@/shared/components/content-header/ContentHeader';
+import GoBack from '@/widgets/go-back';
 import styles from '@/shared/styles/page.module.css';
 
 interface LevelPageProps {
@@ -27,18 +28,15 @@ export default async function LevelPage({ params }: LevelPageProps) {
 						</div>
 					</>
 				) : (
-					<div className={styles.congratulation}>
-						<h1>🎉 Ура, все слова изучены!</h1>
-						<p>Выберите другой уровень или сбросьте прогресс</p>
-					</div>
+					<ContentHeader
+						variant="gap"
+						title="🎉 Ура, все слова изучены!"
+						subtitle="Выберите другой уровень или сбросьте прогресс"
+					/>
 				)}
 			</main>
 
-			<nav className={styles.nav}>
-				<Link href="/" className={styles.link}>
-					Назад
-				</Link>
-			</nav>
+			<GoBack />
 		</div>
 	);
 }
