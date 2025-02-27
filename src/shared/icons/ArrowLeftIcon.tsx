@@ -1,6 +1,6 @@
-export default function ArrowLeft() {
+export default function ArrowLeftIcon() {
 	return (
-		<svg height="16" strokeLinejoin="round" viewBox="0 0 16 16" width="16">
+		<svg data-tesid="geist-icon" height="16" strokeLinejoin="round" viewBox="0 0 16 16" width="16">
 			<path
 				fillRule="evenodd"
 				clipRule="evenodd"
